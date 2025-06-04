@@ -1,0 +1,14 @@
+[project]
+name = "genesis"
+version = "0.1.0"
+description = "Genesis: A reinforcement learning testing framework for AI agents."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = [
+    "genesis-world>=0.2.1",
+    "gymnasium>=1.1.1",
+    "torch>=2.6.0",
+    "torchaudio>=2.6.0",
+    "torchvision>=0.21.0",
+]
