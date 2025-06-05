@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "No tests are currently implemented."
+uv run test_imports.py
 echo "Future test commands should be added here."
 echo "Refer to JULES_SETUP.md for detailed test strategy recommendations."
 echo ""
