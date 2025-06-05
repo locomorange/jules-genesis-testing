@@ -31,8 +31,9 @@
 ├── mdp_explanation.md       # マルコフ決定過程(MDP)の説明
 ├── frozen_lake_explanation.md # FrozenLake-v1環境の説明
 ├── policy_iteration_explanation.md # 方策反復法のアルゴリズム説明
+├── pyproject.toml           # プロジェクト設定と依存関係
+├── .python-version          # Pythonバージョン指定 (uvが利用)
 ├── README.md                # このファイル
-└── requirements.txt         # 必要なPythonライブラリ一覧
 ```
 
 ## セットアップ方法 (Setup Instructions)
@@ -44,29 +45,31 @@
     ```
 
 2.  **Python環境の準備:**
-    *   Python 3.8以上がインストールされていることを確認してください。
-    *   仮想環境の使用を強く推奨します。
+    *   このプロジェクトでは **Python 3.12以上** が必要です (`pyproject.toml` を参照)。
+    *   プロジェクトルートに `.python-version` ファイルを配置して、使用する正確なPythonバージョン (例: `3.12.4`) を指定することを推奨します。`uv` はこのファイルを尊重して適切なPythonインタプリタを探します。
+    *   `uv` を使用して仮想環境を作成し、有効化します。
         ```bash
-        python -m venv venv
-        source venv/bin/activate  # Linux/macOS の場合
-        # venv\Scripts\activate    # Windows の場合
+        uv venv  # .venv という名前で仮想環境を作成します
+        source .venv/bin/activate  # Linux/macOS の場合
+        # .venv\Scripts\activate    # Windows の場合
         ```
+    *   `uv` がインストールされていない場合は、まず `pip install uv` を実行してください。
 
 3.  **依存ライブラリのインストール:**
-    *   `uv` を使用して、`requirements.txt` に記載されたライブラリをインストールします。`uv` が未インストールの場合は、まず `pip install uv` を実行してください。
+    *   仮想環境を有効にした後、`uv` を使用してプロジェクトの依存関係をインストールします。
     ```bash
-    uv pip install -r requirements.txt
+    uv pip install .
     ```
-    *   もし `uv` を使用しない場合は、従来の `pip` でもインストール可能です。
+    *   もし `uv` を使用しない場合は、従来の `pip` でもインストール可能です（Pythonバージョンと仮想環境の管理は手動で行う必要があります）。
     ```bash
-    pip install -r requirements.txt
+    pip install .
     ```
 
 ## 実行方法 (How to Run Examples)
 
 ### 方策反復法 (FrozenLake-v1)
 
-以下のコマンドで、`FrozenLake-v1` 環境における方策反復法の実装を実行できます。
+仮想環境が有効化されていることを確認してから、以下のコマンドで `FrozenLake-v1` 環境における方策反復法の実装を実行できます。
 
 ```bash
 python algorithms/gymnasium_examples/model_based/policy_iteration_frozenlake.py
