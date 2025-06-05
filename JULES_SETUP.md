@@ -6,37 +6,18 @@ This document provides instructions for setting up the development environment f
 
 To ensure a consistent development environment, follow these steps:
 
-1.  **Clone the repository (if not already done):**
-    ```bash
-    # git clone <repository_url>
-    # cd <repository_name>
-    ```
-
-2.  **Create and activate a Python virtual environment:**
-    It is strongly recommended to use a virtual environment to manage project dependencies.
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # For Linux/macOS
-    # venv\Scripts\activate    # For Windows
-    ```
-
-3.  **Install dependencies:**
-    This project uses `requirements.txt` to list its dependencies. Install them using `uv` (if available) or `pip`.
-    ```bash
-    # If you have uv installed:
-    uv pip install .
-    # Alternatively, using pip:
-    # pip install .
-    ```
-    This command should be considered the primary "do setup" step for Jules.
-
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.local/bin/env
+uv sync
+```
 ## Run to Validate
 
 To validate that the core functionality of the project is working correctly after setup, you can run the main example script.
 
 1.  **Execute the Policy Iteration example for FrozenLake-v1:**
     ```bash
-    python algorithms/gymnasium_examples/model_based/policy_iteration_frozenlake.py
+    uv run algorithms/gymnasium_examples/model_based/policy_iteration_frozenlake.py
     ```
     **Expected Output:**
     Upon successful execution, you should see output in the console detailing:

@@ -38,32 +38,14 @@
 
 ## セットアップ方法 (Setup Instructions)
 
-1.  **リポジトリのクローン:**
-    ```bash
-    git clone <repository_url>
-    cd <repository_name>
-    ```
+このプロジェクトでは **Python 3.12以上** が必要です。
+以下のコマンドを実行して、開発環境のセットアップと依存関係のインストールを行ってください。
 
-2.  **Python環境の準備:**
-    *   このプロジェクトでは **Python 3.12以上** が必要です (`pyproject.toml` を参照)。
-    *   プロジェクトルートに `.python-version` ファイルを配置して、使用する正確なPythonバージョン (例: `3.12.4`) を指定することを推奨します。`uv` はこのファイルを尊重して適切なPythonインタプリタを探します。
-    *   `uv` を使用して仮想環境を作成し、有効化します。
-        ```bash
-        uv venv  # .venv という名前で仮想環境を作成します
-        source .venv/bin/activate  # Linux/macOS の場合
-        # .venv\Scripts\activate    # Windows の場合
-        ```
-    *   `uv` がインストールされていない場合は、まず `pip install uv` を実行してください。
-
-3.  **依存ライブラリのインストール:**
-    *   仮想環境を有効にした後、`uv` を使用してプロジェクトの依存関係をインストールします。
-    ```bash
-    uv pip install .
-    ```
-    *   もし `uv` を使用しない場合は、従来の `pip` でもインストール可能です（Pythonバージョンと仮想環境の管理は手動で行う必要があります）。
-    ```bash
-    pip install .
-    ```
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.local/bin/env
+uv sync
+```
 
 ## 実行方法 (How to Run Examples)
 
@@ -72,7 +54,7 @@
 仮想環境が有効化されていることを確認してから、以下のコマンドで `FrozenLake-v1` 環境における方策反復法の実装を実行できます。
 
 ```bash
-python algorithms/gymnasium_examples/model_based/policy_iteration_frozenlake.py
+uv run algorithms/gymnasium_examples/model_based/policy_iteration_frozenlake.py
 ```
 実行後、コンソールに学習過程、最適価値関数、最適方策、およびテストエピソードの結果が出力されます。
 
