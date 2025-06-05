@@ -24,9 +24,9 @@ To ensure a consistent development environment, follow these steps:
     This project uses `requirements.txt` to list its dependencies. Install them using `uv` (if available) or `pip`.
     ```bash
     # If you have uv installed:
-    uv pip install -r requirements.txt
+    uv pip install .
     # Alternatively, using pip:
-    # pip install -r requirements.txt
+    # pip install .
     ```
     This command should be considered the primary "do setup" step for Jules.
 

@@ -265,7 +265,7 @@ if __name__ == '__main__':
     # P: 遷移モデル (Transition Model)
     # P[state][action] は (probability, next_state, reward, terminated) のタプルのリストを返す。
     # FrozenLakeでは env.P で直接アクセス可能。他の環境では env.unwrapped.P が必要な場合もある。
-    P = env.P
+    P = env.unwrapped.P
 
     # グリッドの行数・列数を設定（表示用）
     if map_name == "4x4":
@@ -303,4 +303,3 @@ if __name__ == '__main__':
     test_policy(env, optimal_policy, n_episodes=10, render_mode='ansi')
 
     env.close() # 環境を閉じる
-```
